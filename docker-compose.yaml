@@ -9,7 +9,7 @@ services:
       TODOS_API_ADDRESS: http://todo-api:8082
       ZIPKIN_URL: http://zipkin:9411/api/v2/spans
     ports:
-      - 8080:8080
+      - 8080
     depends_on:
       - zipkin
       - auth-api
@@ -28,7 +28,7 @@ services:
       - zipkin
       - user-api
     ports:
-      - 8081:8081
+      - 8081
 
   todo-api:
     build: ./todo-api
@@ -44,7 +44,7 @@ services:
       - zipkin
       - redis-queue
     ports:
-      - 8082:8082
+      - 8082
 
   user-api:
     build: ./user-api
@@ -56,7 +56,7 @@ services:
     depends_on:
       - zipkin
     ports:
-      - 8083:8083
+      - 8083
      
   log-processor:
     build: ./log-processor
@@ -73,9 +73,9 @@ services:
   zipkin:
     image: openzipkin/zipkin
     ports:
-      - 9411:9411
+      - 9411
 
   redis-queue:
     image: redis:apline
     ports:
-      - 6379:6379
+      - 6379
