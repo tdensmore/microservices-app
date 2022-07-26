@@ -27,6 +27,8 @@ services:
     depends_on:
       - zipkin
       - user-api
+    ports:
+      - 8081:8081
 
   todo-api:
     build: ./todo-api
@@ -41,6 +43,8 @@ services:
     depends_on:
       - zipkin
       - redis-queue
+    ports:
+      - 8082:8082
 
   user-api:
     build: ./user-api
@@ -51,6 +55,8 @@ services:
      SPRING_ZIPKIN_BASE_URL: http://zipkin:9411
     depends_on:
       - zipkin
+    ports:
+      - 8083:8083
      
   log-processor:
     build: ./log-processor
