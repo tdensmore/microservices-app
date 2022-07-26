@@ -70,4 +70,6 @@ services:
       - 9411:9411
 
   redis-queue:
-    image: redis
+    image: redis:apline
+    ports:
+      - 6379:6379
